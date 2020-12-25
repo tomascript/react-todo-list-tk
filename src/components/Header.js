@@ -1,12 +1,34 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { TodoContext } from '../GlobalState';
 
-function Header(props) {
-  const fulfillment = props.all ? (
-    <span>
-      ({props.done}/{props.all})
-    </span>
-  ) : null;
-  return <header className="Header">Todo List {fulfillment}</header>;
+function Header() {
+  const state = useContext(TodoContext);
+
+  const allTodos = state.todos.length;
+
+  const fulfillment =
+    allTodos > 0 ? (
+      <span>
+        {state.done}/{allTodos}
+      </span>
+    ) : null;
+
+  const clearAll = () => {
+    state.setDone(0);
+    state.setTodos([]);
+    localStorage.removeItem('todos');
+  };
+
+  return (
+    <>
+      <i
+        className="fas fa-trash-alt crimson"
+        onClick={clearAll}
+        id="delete-all"
+      ></i>
+      <header className="Header">Todo List {fulfillment}</header>
+    </>
+  );
 }
 
 export default Header;

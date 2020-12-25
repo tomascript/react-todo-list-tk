@@ -1,10 +1,14 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useRef, useEffect } from 'react';
 import { TodoContext } from '../GlobalState';
 
 function Input() {
   const [todoText, setTodoText] = useState('');
-
   const { todos, setTodos } = useContext(TodoContext);
+  const inputField = useRef();
+
+  useEffect(() => {
+    inputField.current.focus();
+  }, [todos]);
 
   const inputChangeHandler = e => {
     e.preventDefault();
@@ -29,6 +33,7 @@ function Input() {
           type="text"
           className="Input"
           placeholder="Type to-do item here..."
+          ref={inputField}
           autoComplete="off"
           autoFocus
           value={todoText}
