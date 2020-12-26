@@ -17,6 +17,7 @@ function Header() {
     state.setDone(0);
     state.setTodos([]);
     localStorage.removeItem('todos');
+    localStorage.removeItem('done');
   };
 
   return (
