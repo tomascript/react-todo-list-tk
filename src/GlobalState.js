@@ -8,14 +8,19 @@ function GlobalState(props) {
 
   useEffect(() => {
     const savedTodos = JSON.parse(localStorage.getItem('todos'));
-    if (savedTodos) setTodos(savedTodos);
+    const done = JSON.parse(localStorage.getItem('done'));
+    if (savedTodos) {
+      setTodos(savedTodos);
+      setDone(+done);
+    }
   }, []);
 
   useEffect(() => {
     if (todos.length > 0) {
       localStorage.setItem('todos', JSON.stringify(todos));
+      localStorage.setItem('done', JSON.stringify(done));
     }
-  }, [todos]);
+  }, [todos, done]);
 
   const state = {
     todos,
