@@ -44,4 +44,4 @@ function Input() {
   );
 }
 
-export default React.memo(Input);
+export default Input;

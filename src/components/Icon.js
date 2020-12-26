@@ -9,7 +9,7 @@ function Icon(props) {
           onClick={() => props.clicked(props.id)}
         ></i>
       ) : (
-        <i className="fas fa-pencil-alt orange" onClick={() => {}}></i>
+        <i className="fas fa-pencil-alt orange" onClick={props.clicked}></i>
       )}
     </div>
   );
