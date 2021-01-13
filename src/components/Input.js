@@ -36,6 +36,7 @@ function Input() {
           ref={inputField}
           autoComplete="off"
           autoFocus
+          spellCheck={false}
           value={todoText}
           onChange={inputChangeHandler}
         />
