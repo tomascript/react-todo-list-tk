@@ -29,7 +29,7 @@ function Input() {
   return (
     <>
       <form className="Inputform" onSubmit={onSubmitHandler}>
-        <input
+        {/* <input
           type="text"
           className="Input"
           placeholder="Type to-do item here..."
@@ -39,7 +39,7 @@ function Input() {
           spellCheck={false}
           value={todoText}
           onChange={inputChangeHandler}
-        />
+        /> */}
       </form>
     </>
   );
